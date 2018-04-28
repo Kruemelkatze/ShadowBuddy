@@ -15,8 +15,10 @@ public class SpriteToMeshTest : MonoBehaviour
 	{
 		var go = CreateChildSpriteRenderer();
 		var polys = go.AddComponent<PolygonCollider2D>();
+		
 		var mesh = SpriteToMesh(sprite, polys.points);
-		Destroy(polys);
+		DestroyImmediate(polys);
+		
 		GetComponent<MeshFilter>().mesh = mesh;
 
 		var collider = GetComponent<MeshCollider>();
@@ -46,16 +48,44 @@ public class SpriteToMeshTest : MonoBehaviour
 		Mesh mesh = new Mesh();
 		mesh.SetVertices(Array.ConvertAll(points, i => (Vector3)i).ToList());
 		mesh.SetTriangles(triangles,0);
-
+		
+		Vector3[] normals = mesh.normals;
+		for (int i=0;i<normals.Length;i++)
+			normals[i] = -normals[i];
+		mesh.normals = normals;
+ 
+		for (int m=0;m<mesh.subMeshCount;m++)
+		{
+			int[] t = mesh.GetTriangles(m);
+			for (int i=0;i<t.Length;i+=3)
+			{
+				int temp = t[i + 0];
+				t[i + 0] = t[i + 1];
+				t[i + 1] = temp;
+			}
+			mesh.SetTriangles(t, m);
+		}
+		
 		return mesh;
 	}
 
 	private GameObject CreateChildSpriteRenderer()
 	{
-		var go = new GameObject();
-		go.transform.parent = this.transform;
+		SpriteRenderer spriteRenderer;
+		GameObject go;
+		if (transform.childCount == 0)
+		{
+			go = new GameObject();
+			spriteRenderer = go.AddComponent<SpriteRenderer>();
+		}
+		else
+		{
+			go = transform.GetChild(0).gameObject;
+			spriteRenderer = go.GetComponent<SpriteRenderer>();
+		}
+		go.transform.parent = transform;
 		go.transform.localPosition = new Vector3(0,0,-0.01f);
-		var spriteRenderer = go.AddComponent<SpriteRenderer>();
+		
 		spriteRenderer.sprite = sprite;
 
 		return go;
