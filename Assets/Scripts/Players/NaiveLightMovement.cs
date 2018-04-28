@@ -40,6 +40,23 @@ public class NaiveLightMovement : MonoBehaviour
 			speedZ = -Speed;
 		}
 		
+		if (Input.GetKey(KeyCode.A))
+		{
+			movement.x = -1;
+		}
+		else if (Input.GetKey(KeyCode.D))
+		{
+			movement.x = 1;
+		}
+		if (Input.GetKey(KeyCode.W))
+		{
+			movement.y = 1;
+		}
+		else if (Input.GetKey(KeyCode.S))
+		{
+			movement.y = -1;
+		}
+		
 		transform.position = transform.position + new Vector3(movement.x * Time.deltaTime *Speed, movement.y * Time.deltaTime * Speed, speedZ * Time.deltaTime);
 	}
 

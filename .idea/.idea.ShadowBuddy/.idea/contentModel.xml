@@ -20,6 +20,7 @@
       <e p="Assets\Scripts" t="Include">
         <e p="Cam" t="Include">
           <e p="FollowCamera2D.cs" t="Include" />
+          <e p="ZoomOut.cs" t="Include" />
         </e>
         <e p="Globals" t="Include">
           <e p="EventHub.cs" t="Include" />
@@ -28,7 +29,9 @@
           <e p="Triangulator.cs" t="Include" />
         </e>
         <e p="Level" t="Include">
+          <e p="EndOfLevel.cs" t="Include" />
           <e p="LevelSegment.cs" t="Include" />
+          <e p="OutOfMap.cs" t="Include" />
         </e>
         <e p="Players" t="Include">
           <e p="LookAtShadowPlayer.cs" t="Include" />
