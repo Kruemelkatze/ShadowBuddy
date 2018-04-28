@@ -20,6 +20,8 @@ public class ShadowPlayerRigid : MonoBehaviour {
 	private TestIfLit _testIfLid;
 	private SpriteRenderer _spriteRenderer;
 	private Rigidbody _rigid;
+	public Color _initialTint;
+	public Color InShadowTint;
 	
 	// Use this for initialization
 	void Start()
@@ -28,11 +30,12 @@ public class ShadowPlayerRigid : MonoBehaviour {
 		_spriteRenderer = GetComponent<SpriteRenderer>();
 		_rigid = GetComponent<Rigidbody>();
 
+		_initialTint = _spriteRenderer.color;
 	}
 	
 	void LateUpdate()
 	{
-		float speedX = Input.GetAxis("ShadowHorizontal") * Speed * 100 * Time.deltaTime;
+		float speedX = Input.GetAxis("ShadowHorizontal");
 
 		float verticalVelocity = Math.Min(_rigid.velocity.z, MaxDropSpeed);
 		bool lit = _testIfLid.Lit;
@@ -40,8 +43,21 @@ public class ShadowPlayerRigid : MonoBehaviour {
 
 		if (lit)
 		{
-			_rigid.velocity = new Vector3(speedX, 0, verticalVelocity);
+			if (Input.GetKey(KeyCode.LeftArrow))
+			{
+				speedX = -1;
+			}
+			 else if (Input.GetKey(KeyCode.RightArrow))
+			{
+				speedX = 1;
+			}
+			_rigid.velocity = new Vector3(speedX * Speed * 100 * Time.deltaTime, 0, verticalVelocity);
 			_rigid.useGravity = true;
+			_spriteRenderer.color = _initialTint;
+		}
+		else
+		{
+			_spriteRenderer.color = InShadowTint;
 		}
 		
 		if (PreviousLit && !lit)

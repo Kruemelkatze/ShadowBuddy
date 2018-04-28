@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class TestIfLit : MonoBehaviour
     private Rigidbody _rigid;
     private MeshRenderer _meshRenderer;
     private SpriteRenderer _spriteRenderer;
+    public LayerMask RayCastMask;
 
     public bool Lit;
     public bool UseRigid = false;
@@ -28,7 +30,7 @@ public class TestIfLit : MonoBehaviour
         var ray = new Ray(origin, light.transform.position - origin);
         RaycastHit hit;
 
-        Lit = !Physics.Raycast(ray, out hit);
+        Lit = !Physics.Raycast(ray, out hit, float.PositiveInfinity, RayCastMask.value);
         Debug.DrawRay(ray.origin, ray.direction * 3, Color.red);
 
         ProcessRigid();
