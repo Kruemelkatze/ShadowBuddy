@@ -181,6 +181,11 @@
         </e>
       </e>
       <e p="Assets\Scripts" t="Include">
+        <e p="Audio" t="Include">
+          <e p="AudioControl.cs" t="Include" />
+          <e p="PeriodSound.cs" t="Include" />
+          <e p="SoundTrigger.cs" t="Include" />
+        </e>
         <e p="Cam" t="Include">
           <e p="FollowCamera2D.cs" t="Include" />
           <e p="ZoomOut.cs" t="Include" />
@@ -192,7 +197,9 @@
           <e p="EventHub.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="Hub.cs" t="Include" />
+          <e p="ObjectDictionary.cs" t="Include" />
           <e p="Triangulator.cs" t="Include" />
+          <e p="UnityDictionary.cs" t="Include" />
         </e>
         <e p="Level" t="Include">
           <e p="EndOfLevel.cs" t="Include" />

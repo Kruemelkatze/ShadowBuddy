@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         foreach (Transform child in GameObject.Find("Segments").transform)
         {
             var segment = child.gameObject.GetComponent<LevelSegment>();
-            if (child.gameObject.tag != "ignore")
+            if (!child.gameObject.CompareTag("ignore"))
             {
                 levelSegmentList.Add(segment);
             }
@@ -34,11 +34,13 @@ public class GameManager : MonoBehaviour
         if (Segments.Length != 0)
         {
             CurrentSegment = Segments[0];
-            Reset();
+            Reset(false, true);
         }
+
+        Hub.Get<AudioControl>().PlayDefaultMusic();
     }
 
-    public void Reset(bool cameraToo = false)
+    public void Reset(bool cameraToo = false, bool initial = false)
     {
         if (!CurrentSegment)
         {
@@ -53,6 +55,11 @@ public class GameManager : MonoBehaviour
         if (cameraToo)
         {
             StartCoroutine(SlowCamera());
+            Hub.Get<AudioControl>().PlaySound("amb_book_flip_3");
+        }
+        else if(!initial)
+        {
+            Hub.Get<AudioControl>().PlaySound("player_reset_1");
         }
     }
 
