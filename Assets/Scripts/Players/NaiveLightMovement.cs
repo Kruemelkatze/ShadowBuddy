@@ -8,6 +8,8 @@ public class NaiveLightMovement : MonoBehaviour
 
 	public float Speed = 3;
 	public bool DebugSpeed = false;
+
+	public int Inverted = 1;
 	
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,11 @@ public class NaiveLightMovement : MonoBehaviour
 		//var speedY = -Input.GetAxis("LightVertical");
 		//var movement = new Vector2(speedX, speedY);
 		var movement = DeadZoned();
+
+		if (Input.GetAxis("LightInvert") > 0.5)
+		{
+			Inverted *= -1;
+		}
 
 		if (DebugSpeed)
 		{
@@ -57,7 +64,7 @@ public class NaiveLightMovement : MonoBehaviour
 			movement.y = -1;
 		}
 		
-		transform.position = transform.position + new Vector3(movement.x * Time.deltaTime *Speed, movement.y * Time.deltaTime * Speed, speedZ * Time.deltaTime);
+		transform.position = transform.position + new Vector3(movement.x * Time.deltaTime *Speed, movement.y * Time.deltaTime * Speed * Inverted , speedZ * Time.deltaTime);
 	}
 
 	private Vector2 DeadZoned()
