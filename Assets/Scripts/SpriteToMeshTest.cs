@@ -17,8 +17,10 @@ public class SpriteToMeshTest : MonoBehaviour
 		var mesh = SpriteToMesh(sprite, polys.points);
 		Destroy(polys);
 		GetComponent<MeshFilter>().mesh = mesh;
-		GetComponent<MeshCollider>().sharedMesh = mesh;
 
+		var collider = GetComponent<MeshCollider>();
+		mesh.RecalculateBounds();
+		collider.sharedMesh = mesh;
 	}
 	
 	// Update is called once per frame
@@ -51,7 +53,7 @@ public class SpriteToMeshTest : MonoBehaviour
 	{
 		var go = new GameObject();
 		go.transform.parent = this.transform;
-		go.transform.localPosition = new Vector3();
+		go.transform.localPosition = new Vector3(0,0,-0.01f);
 		var spriteRenderer = go.AddComponent<SpriteRenderer>();
 		spriteRenderer.sprite = sprite;
 

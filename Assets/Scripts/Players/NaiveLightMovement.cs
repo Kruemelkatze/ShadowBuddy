@@ -7,6 +7,7 @@ public class NaiveLightMovement : MonoBehaviour
 {
 
 	public float Speed = 3;
+	public bool DebugSpeed = false;
 	
 	// Use this for initialization
 	void Start () {
@@ -17,8 +18,15 @@ public class NaiveLightMovement : MonoBehaviour
 	void Update ()
 	{
 
-		var speedX = Math.Sign(Input.GetAxis("Horizontal"));
-		var speedY = Math.Sign(Input.GetAxis("Vertical"));
+		var speedX =Input.GetAxis("LightHorizontal");
+		var speedY = -Input.GetAxis("LightVertical");
+
+		if (DebugSpeed)
+		{
+					
+			Debug.Log(Input.GetAxis("LightHorizontal"));
+			Debug.Log(Input.GetAxis("LightVertical"));
+		}
 
 		var speedZ = 0f;
 		if (Input.GetKey(KeyCode.O))

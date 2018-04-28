@@ -24,7 +24,10 @@
           <e p="Triangulator.cs" t="Include" />
         </e>
         <e p="Players" t="Include">
+          <e p="LookAtShadowPlayer.cs" t="Include" />
           <e p="NaiveLightMovement.cs" t="Include" />
+          <e p="ShadowPlayer.cs" t="Include" />
+          <e p="ShadowPlayerRigid.cs" t="Include" />
         </e>
         <e p="ShadowCaster" t="Include">
           <e p="ShadowCollision.cs" t="Include" />
