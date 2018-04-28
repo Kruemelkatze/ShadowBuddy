@@ -18,8 +18,10 @@ public class NaiveLightMovement : MonoBehaviour
 	void Update ()
 	{
 
-		var speedX =Input.GetAxis("LightHorizontal");
-		var speedY = -Input.GetAxis("LightVertical");
+		//var speedX =Input.GetAxis("LightHorizontal");
+		//var speedY = -Input.GetAxis("LightVertical");
+		//var movement = new Vector2(speedX, speedY);
+		var movement = DeadZoned();
 
 		if (DebugSpeed)
 		{
@@ -38,6 +40,17 @@ public class NaiveLightMovement : MonoBehaviour
 			speedZ = -Speed;
 		}
 		
-		transform.position = transform.position + new Vector3(speedX * Time.deltaTime *Speed, speedY * Time.deltaTime * Speed, speedZ * Time.deltaTime);
+		transform.position = transform.position + new Vector3(movement.x * Time.deltaTime *Speed, movement.y * Time.deltaTime * Speed, speedZ * Time.deltaTime);
+	}
+
+	private Vector2 DeadZoned()
+	{
+		float deadzone = 0.25f;
+		Vector2 stickInput = new Vector2(Input.GetAxis("LightHorizontal"), Input.GetAxis("LightVertical"));
+		if(stickInput.magnitude < deadzone)
+			stickInput = Vector2.zero;
+		else
+			stickInput = stickInput.normalized * ((stickInput.magnitude - deadzone) / (1 - deadzone));
+		return stickInput;
 	}
 }
