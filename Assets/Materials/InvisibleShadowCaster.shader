@@ -1,4 +1,4 @@
-﻿Shader "Invisible/InvisibleShadowCaster" {
+﻿ Shader "Invisible/InvisibleShadowCaster" {
      SubShader {
          Tags { 
              "Queue"="Transparent"

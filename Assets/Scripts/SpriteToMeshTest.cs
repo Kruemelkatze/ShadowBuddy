@@ -8,6 +8,8 @@ using UnityEngine;
 public class SpriteToMeshTest : MonoBehaviour
 {
 
+	private static bool InvertMeshNormals = false;
+
 	public Sprite sprite;
 	
 	// Use this for initialization
@@ -48,24 +50,28 @@ public class SpriteToMeshTest : MonoBehaviour
 		Mesh mesh = new Mesh();
 		mesh.SetVertices(Array.ConvertAll(points, i => (Vector3)i).ToList());
 		mesh.SetTriangles(triangles,0);
-		
-		Vector3[] normals = mesh.normals;
-		for (int i=0;i<normals.Length;i++)
-			normals[i] = -normals[i];
-		mesh.normals = normals;
- 
-		for (int m=0;m<mesh.subMeshCount;m++)
+
+		if (InvertMeshNormals)
 		{
-			int[] t = mesh.GetTriangles(m);
-			for (int i=0;i<t.Length;i+=3)
+			Vector3[] normals = mesh.normals;
+			for (int i = 0; i < normals.Length; i++)
+				normals[i] = -normals[i];
+			mesh.normals = normals;
+
+			for (int m = 0; m < mesh.subMeshCount; m++)
 			{
-				int temp = t[i + 0];
-				t[i + 0] = t[i + 1];
-				t[i + 1] = temp;
+				int[] t = mesh.GetTriangles(m);
+				for (int i = 0; i < t.Length; i += 3)
+				{
+					int temp = t[i + 0];
+					t[i + 0] = t[i + 1];
+					t[i + 1] = temp;
+				}
+
+				mesh.SetTriangles(t, m);
 			}
-			mesh.SetTriangles(t, m);
 		}
-		
+
 		return mesh;
 	}
 
