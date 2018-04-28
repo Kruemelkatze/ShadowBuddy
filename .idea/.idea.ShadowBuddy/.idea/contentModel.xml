@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\fabian\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_ShadowBuddy.1188107852.00" t="ExcludeRecursive" />
+    <e p="C:\Users\fabian\Documents\ShadowBuddy" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets\Eazy Tools" t="Include">
+        <e p="Sound Manager" t="Include">
+          <e p="Demo" t="Include">
+            <e p="EazySoundManagerDemo.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="SoundManager.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Assets\Materials" t="Include">
+        <e p="InvisibleShadowCaster.shader" t="Include" />
+      </e>
+      <e p="Assets\Scripts" t="Include">
+        <e p="Globals" t="Include">
+          <e p="EventHub.cs" t="Include" />
+          <e p="Hub.cs" t="Include" />
+          <e p="Triangulator.cs" t="Include" />
+        </e>
+        <e p="Players" t="Include">
+          <e p="NaiveLightMovement.cs" t="Include" />
+        </e>
+        <e p="ShadowCaster" t="Include">
+          <e p="ShadowCollision.cs" t="Include" />
+          <e p="ShadowPuppet.cs" t="Include" />
+          <e p="TestIfLit.cs" t="Include" />
+        </e>
+        <e p="SpriteToMeshTest.cs" t="Include" />
+      </e>
+      <e p="Assets\ShadowCaster" t="Include">
+        <e p="Area.cs" t="Include" />
+        <e p="LightChecker.cs" t="Include" />
+        <e p="Puppet.cs" t="Include" />
+        <e p="Stealth.cs" t="Include" />
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="ShadowBuddy.sln" t="IncludeFlat" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
