@@ -61,14 +61,15 @@ public class GameManager : MonoBehaviour
         var followScript = Camera.main.gameObject.GetComponent<FollowCamera2D>();
         var oldDamp = followScript.dampTime;
         var tempDamp = oldDamp * 5;
-        followScript.dampTime = tempDamp * 1.5f;
+        followScript.dampTime = tempDamp;
 
         var zoomOut = Camera.main.gameObject.GetComponent<ZoomOut>();
         zoomOut.DampTime = tempDamp;
         zoomOut.ZoomOutCamera = true;
         yield return new WaitForSeconds(tempDamp);
-        followScript.dampTime = oldDamp;
         zoomOut.ZoomOutCamera = false;
+        yield return new WaitForSeconds(tempDamp);
+        followScript.dampTime = oldDamp;
     }
 
     public void EndOfLevelReached()
