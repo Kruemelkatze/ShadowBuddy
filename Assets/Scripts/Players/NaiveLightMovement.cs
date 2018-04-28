@@ -6,8 +6,12 @@ using UnityEngine;
 public class NaiveLightMovement : MonoBehaviour
 {
 
-	public float Speed = 3;
-	public bool DebugSpeed = false;
+    public float Speed = 3;
+    public float BoundTop = 0;
+    public float BoundBottom = 0;
+    public float BoundLeft = 0;
+    public float BoundRight = 0;
+    public bool DebugSpeed = false;
 
 	public int Inverted = 1;
 	
@@ -63,9 +67,27 @@ public class NaiveLightMovement : MonoBehaviour
 		{
 			movement.y = -1;
 		}
-		
-		transform.position = transform.position + new Vector3(movement.x * Time.deltaTime *Speed, movement.y * Time.deltaTime * Speed * Inverted , speedZ * Time.deltaTime);
-	}
+
+        transform.position = transform.position +
+            new Vector3(movement.x * Time.deltaTime * Speed, movement.y * Time.deltaTime * Speed, speedZ * Time.deltaTime);
+
+        if (transform.position.y < BoundBottom)
+        {
+            transform.position = new Vector3(transform.position.x, BoundBottom, transform.position.z);
+        }
+        if (transform.position.y > BoundTop)
+        {
+            transform.position = new Vector3(transform.position.x, BoundTop, transform.position.z);
+        }
+        if (transform.position.x < BoundLeft)
+        {
+            transform.position = new Vector3(BoundLeft, transform.position.y, transform.position.z);
+        }
+        if (transform.position.x > BoundRight)
+        {
+            transform.position = new Vector3(BoundRight, transform.position.y, transform.position.z);
+        }
+    }
 
 	private Vector2 DeadZoned()
 	{
