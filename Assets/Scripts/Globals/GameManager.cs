@@ -19,6 +19,18 @@ public class GameManager : MonoBehaviour
         PlayerLight = GameObject.Find("PlayerLight");
         PlayerShadow = GameObject.Find("PlayerShadow");
 
+        var levelSegmentList = new List<LevelSegment>();
+        foreach (Transform child in GameObject.Find("Segments").transform)
+        {
+            var segment = child.gameObject.GetComponent<LevelSegment>();
+            if (child.gameObject.tag != "ignore")
+            {
+                levelSegmentList.Add(segment);
+            }
+        }
+
+        Segments = levelSegmentList.ToArray();
+
         if (Segments.Length != 0)
         {
             CurrentSegment = Segments[0];
@@ -50,14 +62,13 @@ public class GameManager : MonoBehaviour
         var oldDamp = followScript.dampTime;
         var tempDamp = oldDamp * 5;
         followScript.dampTime = tempDamp * 1.5f;
-        
+
         var zoomOut = Camera.main.gameObject.GetComponent<ZoomOut>();
         zoomOut.DampTime = tempDamp;
         zoomOut.ZoomOutCamera = true;
         yield return new WaitForSeconds(tempDamp);
         followScript.dampTime = oldDamp;
         zoomOut.ZoomOutCamera = false;
-
     }
 
     public void EndOfLevelReached()
@@ -73,5 +84,4 @@ public class GameManager : MonoBehaviour
             Reset(true);
         }
     }
-
 }
