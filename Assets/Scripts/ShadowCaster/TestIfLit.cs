@@ -24,7 +24,7 @@ public class TestIfLit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var origin = transform.position + new Vector3(0, 0, transform.localScale.y);
+        var origin = transform.position + new Vector3(0, 0, transform.localScale.y / 2);
         var ray = new Ray(origin, light.transform.position - origin);
         RaycastHit hit;
 
@@ -60,20 +60,12 @@ public class TestIfLit : MonoBehaviour
             {
                 _meshRenderer.material.color = Lit ? Color.green : Color.red;
             }
-            else
-            {
-                _meshRenderer.material.color = Color.white;
-            }
         }
         else if (_spriteRenderer)
         {
             if (RendererTint)
             {
                 _spriteRenderer.color = Lit ? Color.green : Color.red;
-            }
-            else
-            {
-                _spriteRenderer.color = Color.white;
             }
         }
     }
