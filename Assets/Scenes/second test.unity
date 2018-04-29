@@ -5664,6 +5664,18 @@ Prefab:
       propertyPath: Inverted
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 4801989791692946, guid: ec7cd39cea8102449896528055000956, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801989791692946, guid: ec7cd39cea8102449896528055000956, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201181906874450, guid: ec7cd39cea8102449896528055000956, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec7cd39cea8102449896528055000956, type: 2}
   m_IsPrefabParent: 0
