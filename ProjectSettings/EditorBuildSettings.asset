@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/first test.unity
     guid: a836f14f0f0d1fc419aa73f52d75c597
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/second test.unity
     guid: 7730f037789aa624db030171ba66a5e5
+  - enabled: 1
+    path: Assets/Scenes/RealGameScene.unity
+    guid: 274fc65ba37036249b46dc7fd4b7527d
