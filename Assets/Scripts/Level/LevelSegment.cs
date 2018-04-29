@@ -15,7 +15,7 @@ public class LevelSegment : MonoBehaviour
 	public Vector3 InitialPlayerPosition = new Vector3(0,0, -5);
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 		LevelOffset = transform.position;
 	}
