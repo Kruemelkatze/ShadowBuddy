@@ -164,7 +164,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1549394354244008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4076530273345746}
@@ -358,7 +358,7 @@ MeshCollider:
   m_GameObject: {fileID: 1167268039634844}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -372,7 +372,7 @@ MeshCollider:
   m_GameObject: {fileID: 1799632567627718}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -414,6 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelOffset: {x: 0, y: 0, z: 0}
+  ShadowColor: {r: 67, g: 70, b: 77, a: 255}
   InitialSunPosition: {x: 0.5, y: 6.5, z: 3.3}
   InitialCameraPosition: {x: 0, y: 5, z: 0.8}
   InitialPlayerPosition: {x: 0, y: 0, z: -5}

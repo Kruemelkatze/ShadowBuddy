@@ -31,6 +31,13 @@ public class GameManager : MonoBehaviour
 
         Segments = levelSegmentList.ToArray();
 
+        for (int i = 0; i < Segments.Length; i++)
+        {
+            var table = Segments[i].transform.Find("Table");
+            var scaleX = table.localScale.x * (i % 2 == 0 ? -1 : 1);
+            table.localScale = new Vector3(scaleX, table.localScale.y, table.localScale.z);
+        }
+
         if (Segments.Length != 0)
         {
             CurrentSegment = Segments[0];
@@ -49,6 +56,7 @@ public class GameManager : MonoBehaviour
         }
 
         PlayerShadow.GetComponent<SpriteRenderer>().color = CurrentSegment.ShadowColor;
+        CurrentSegment.GetComponentInChildren<EndOfLevel>().GetComponent<SpriteRenderer>().color = CurrentSegment.ShadowColor;
 
         PlayerLight.transform.position = CurrentSegment.InitialSunPosition + CurrentSegment.LevelOffset;
         PlayerShadow.transform.position =

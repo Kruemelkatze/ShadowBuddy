@@ -59,6 +59,6 @@ public class Raccoon : MonoBehaviour
 				break;
 		}
 
-		transform.position += new Vector3(moveX * Speed * Time.deltaTime, Mathf.Sin(2*posX) * SinSpeed * Time.deltaTime, 0);
+		transform.position += new Vector3(moveX * Speed * Time.deltaTime, Mathf.Sin(2*Time.time) * SinSpeed * Time.deltaTime, 0);
 	}
 }
