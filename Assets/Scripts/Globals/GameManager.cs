@@ -47,6 +47,14 @@ public class GameManager : MonoBehaviour
         Hub.Get<AudioControl>().PlayDefaultMusic();
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Reset"))
+        {
+            BackToMain();
+        }
+    }
+
     public void Reset(bool cameraToo = false, bool initial = false)
     {
         if (!CurrentSegment)
@@ -95,11 +103,18 @@ public class GameManager : MonoBehaviour
         if (index == Segments.Length - 1)
         {
             Debug.LogWarning("Last Segment Overcome!");
+            BackToMain();
         }
         else
         {
             CurrentSegment = Segments[index + 1];
             Reset(true);
         }
+    }
+
+    public void BackToMain()
+    {
+        CurrentSegment = Segments[0];
+        Reset(true);
     }
 }
