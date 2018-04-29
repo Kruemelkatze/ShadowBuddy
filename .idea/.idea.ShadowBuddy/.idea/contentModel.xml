@@ -202,6 +202,7 @@
           <e p="UnityDictionary.cs" t="Include" />
         </e>
         <e p="Level" t="Include">
+          <e p="ActivateOnEnter.cs" t="Include" />
           <e p="EndOfLevel.cs" t="Include" />
           <e p="LevelSegment.cs" t="Include" />
           <e p="OutOfMap.cs" t="Include" />

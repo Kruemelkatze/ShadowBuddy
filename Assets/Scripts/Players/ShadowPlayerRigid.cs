@@ -53,11 +53,9 @@ public class ShadowPlayerRigid : MonoBehaviour {
 			}
 			_rigid.velocity = new Vector3(speedX * Speed * 100 * Time.deltaTime, 0, verticalVelocity);
 			_rigid.useGravity = true;
-			_spriteRenderer.color = _initialTint;
 		}
 		else
 		{
-			_spriteRenderer.color = InShadowTint;
 		}
 		
 		if (PreviousLit && !lit)

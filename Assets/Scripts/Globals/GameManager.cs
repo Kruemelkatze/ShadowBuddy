@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        PlayerShadow.GetComponent<SpriteRenderer>().color = CurrentSegment.ShadowColor;
+
         PlayerLight.transform.position = CurrentSegment.InitialSunPosition + CurrentSegment.LevelOffset;
         PlayerShadow.transform.position =
             CurrentSegment.InitialPlayerPosition + CurrentSegment.LevelOffset + Vector3.up * 0.01f;

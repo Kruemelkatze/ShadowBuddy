@@ -79,14 +79,14 @@ public class NaiveLightMovement : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, BoundTop, transform.position.z);
         }
-        if (transform.position.x < BoundLeft)
-        {
-            transform.position = new Vector3(BoundLeft, transform.position.y, transform.position.z);
-        }
-        if (transform.position.x > BoundRight)
-        {
-            transform.position = new Vector3(BoundRight, transform.position.y, transform.position.z);
-        }
+        //if (transform.position.x < BoundLeft)
+        //{
+         //   transform.position = new Vector3(BoundLeft, transform.position.y, transform.position.z);
+        //}
+        //if (transform.position.x > BoundRight)
+        //{
+         //   transform.position = new Vector3(BoundRight, transform.position.y, transform.position.z);
+        //}
     }
 
 	private Vector2 DeadZoned()
