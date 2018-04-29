@@ -34,6 +34,11 @@ public class NaiveLightMovement : MonoBehaviour
 			Inverted *= -1;
 		}
 
+		if (Inverted == 1)
+		{
+			movement = new Vector2(movement.x * -1, movement.y);
+		}
+
 		if (DebugSpeed)
 		{
 					
