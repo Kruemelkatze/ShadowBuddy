@@ -8,7 +8,5 @@ Made during the [5th Klagenfurt GameJam](https://www.itec.aau.at/gamejam/).
 
 ### [Download Executable](./Releases).
 
-<img width="400" alt="Screenshot 1" src="Screenshots/1.jpg"/>
-<img width="400" alt="Screenshot 2" src="Screenshots/2.jpg"/>
-<img width="400" alt="Screenshot 3" src="Screenshots/3.jpg"/>
-<img width="400" alt="Screenshot 4" src="Screenshots/4.jpg"/>
+<img width="400" alt="Screenshot 1" src="Screenshots/1.jpg"/> <img width="400" alt="Screenshot 2" src="Screenshots/2.jpg"/>
+<img width="400" alt="Screenshot 3" src="Screenshots/3.jpg"/> <img width="400" alt="Screenshot 4" src="Screenshots/4.jpg"/>
