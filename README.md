@@ -4,9 +4,9 @@ Shadow Buddy is a cooperative multiplayer game in a pop-up book style environmen
 
 Made during the [5th Klagenfurt GameJam](https://www.itec.aau.at/gamejam/).
 
-## [Play on itch.io!](https://kruemelkatze.itch.io/shadow-buddy)
+### [Play on itch.io](https://kruemelkatze.itch.io/shadow-buddy)
 
-### [Download Executable](./Releases).
+### [Download Executable](./Releases)
 
 <img width="400" alt="Screenshot 1" src="Screenshots/1.jpg"/> <img width="400" alt="Screenshot 2" src="Screenshots/2.jpg"/>
 <img width="400" alt="Screenshot 3" src="Screenshots/3.jpg"/> <img width="400" alt="Screenshot 4" src="Screenshots/4.jpg"/>
